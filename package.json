@@ -11,7 +11,7 @@
     "lint": "next lint",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "precommit": "npm run lint && npm test",
+    "precommit": "npm run format && npm run lint && npm test",
     "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "husky": {
