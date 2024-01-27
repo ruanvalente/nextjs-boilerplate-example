@@ -8,6 +8,7 @@ export function TroubleticketTable({ data }: TroubleTicketType) {
       value={data}
       paginator
       rows={10}
+      showGridlines={true}
       rowsPerPageOptions={[10, 25, 50]}
       tableStyle={{ minWidth: '50rem' }}
     >

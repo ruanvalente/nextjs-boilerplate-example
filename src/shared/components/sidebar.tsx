@@ -21,7 +21,6 @@ export default function SidebarComponent() {
 
   return (
     <Sidebar
-      style={{ height: '100vh' }}
       collapsedWidth="5vw"
       collapsed={collapsed}
       onMouseEnter={handleMouseEnter}
