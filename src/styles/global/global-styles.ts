@@ -1,11 +1,13 @@
 'use client'
+import 'primeicons/primeicons.css'
+import 'primereact/resources/primereact.min.css'
+import 'primereact/resources/themes/saga-blue/theme.css'
 
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
-
 *, *::before, *::after {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 * {
   margin: 0;
@@ -30,4 +32,9 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+`
+
+export const MainLayoutWrapper = styled.main`
+  display: flex;
+  gap: 2rem;
 `

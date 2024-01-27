@@ -1,6 +1,7 @@
-import StyledComponentsRegistry from '@/lib/styled-components/registry'
-import { GlobalStyles } from '../styles/global/global-styles'
+import StyledComponentsRegistry from '@/lib/ui/styled-components/registry'
+import { GlobalStyles, MainLayoutWrapper } from '../styles/global/global-styles'
 import { Inter } from 'next/font/google'
+import SidebarComponent from '@/shared/components/sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,7 +15,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          {children}
+          <MainLayoutWrapper>
+            <SidebarComponent />
+            {children}
+          </MainLayoutWrapper>
         </StyledComponentsRegistry>
       </body>
     </html>
