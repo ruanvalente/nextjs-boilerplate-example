@@ -1,6 +1,7 @@
 import { Column } from 'primereact/column'
-import { TroubleTicketType } from '../types/troubleticket-table-type'
 import { DataTable } from 'primereact/datatable'
+
+import { TroubleTicketType } from '../types/troubleticket-table-type'
 
 export function TroubleticketTable({ data }: TroubleTicketType) {
   return (

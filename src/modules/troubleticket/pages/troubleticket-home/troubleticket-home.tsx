@@ -1,20 +1,30 @@
-import { PostType } from '@/modules/troubleticket/types/post-type'
-import { TroubleticketTable } from '../../components/troubleticket-table'
+import dynamic from 'next/dynamic'
+
+import { HttpClient } from '@/services/http/httpClient'
 
 import {
-  TroubletTicketTableWrapper,
   TroubletTicketTableHeading,
+  TroubletTicketTableWrapper,
 } from '../../styles/styled'
 
+import { PostType } from '@/modules/troubleticket/types/post-type'
+
+const TroubleticketTable = dynamic(() =>
+  import('@/modules/troubleticket/components/troubleticket-table').then(
+    (mod) => mod.TroubleticketTable,
+  ),
+)
 const fetchData = async (): Promise<PostType[] | undefined> => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const postData: PostType[] = await response.json()
+    const baseURL = process.env.BASE_URL_POST as string
+    const httpClient = new HttpClient()
+    const response = await httpClient.get<PostType[]>(baseURL)
+    const { data, status } = response
 
-    if (!postData) {
+    if (status !== 200) {
       console.error('error fetching')
     }
-    return postData
+    return data
   } catch (error) {
     console.log(error)
   }

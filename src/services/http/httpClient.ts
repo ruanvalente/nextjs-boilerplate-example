@@ -16,7 +16,7 @@ interface Http {
   delete<T>(url: string): Promise<ApiResponse<T>>
 }
 
-class HttpClient implements Http {
+export class HttpClient implements Http {
   private baseHeaders: Headers
 
   constructor(baseHeaders: Headers = new Headers()) {
