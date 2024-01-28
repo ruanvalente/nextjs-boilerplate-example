@@ -1,3 +1,10 @@
+import { FullCalendarComponent } from '@/shared/components/fullcalendar'
+
 export default function AppointmentHome() {
-  return <h1>Appointment page</h1>
+  return (
+    <div>
+      <h1>Appointment Page</h1>
+      <FullCalendarComponent />
+    </div>
+  )
 }

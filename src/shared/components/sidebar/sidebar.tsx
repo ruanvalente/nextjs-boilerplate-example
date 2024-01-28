@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Menu, MenuItem } from 'react-pro-sidebar'
-import { SidebarStyledWrapper } from '../styles/sidebar/sidebar-styled'
+import { SidebarStyledWrapper } from '../../styles/sidebar/sidebar-styled'
 
 export default function SidebarComponent() {
   const [collapsed, setCollapsed] = useState(true)

@@ -1,7 +1,7 @@
 import StyledComponentsRegistry from '@/lib/ui/styled-components/registry'
 import { GlobalStyles, MainLayoutWrapper } from '../styles/global/global-styles'
 import { Inter } from 'next/font/google'
-import SidebarComponent from '@/shared/components/sidebar'
+import SidebarComponent from '@/shared/components/sidebar/sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
