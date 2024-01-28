@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar'
+import { Menu, MenuItem } from 'react-pro-sidebar'
+import { SidebarStyledWrapper } from '../styles/sidebar/sidebar-styled'
 
 export default function SidebarComponent() {
   const [collapsed, setCollapsed] = useState(true)
@@ -20,7 +21,7 @@ export default function SidebarComponent() {
   }
 
   return (
-    <Sidebar
+    <SidebarStyledWrapper
       collapsedWidth="5vw"
       collapsed={collapsed}
       onMouseEnter={handleMouseEnter}
@@ -53,6 +54,6 @@ export default function SidebarComponent() {
           {!collapsed && <span style={{ marginLeft: '1rem' }}>Sair</span>}
         </MenuItem>
       </Menu>
-    </Sidebar>
+    </SidebarStyledWrapper>
   )
 }

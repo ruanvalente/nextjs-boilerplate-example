@@ -9,7 +9,6 @@ async function fetchPostData() {
     const baseURL = process.env.BASE_URL_POST as string
     const httpClient = new HttpClient()
     const response = await httpClient.get<PostType[]>(baseURL)
-
     const { data, status } = response
 
     if (status !== 200) {
