@@ -30,7 +30,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-pro-sidebar": "^1.1.0-alpha.2",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

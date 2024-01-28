@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, prettyDOM } from '@testing-library/react'
 
 import TroubleticketHome from '../pages/troubleticket-home/troubleticket-home'
 
