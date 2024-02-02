@@ -8,7 +8,6 @@ export const ErrorPageStyledWrapper = styled.div`
 
   width: 100%;
 `
-
 export const ErrorPageStyledParagraph = styled.p`
   font-size: 1rem;
   text-align: center;

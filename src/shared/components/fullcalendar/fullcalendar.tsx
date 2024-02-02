@@ -1,11 +1,12 @@
 'use client'
 
-import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import ptBRLocale from '@fullcalendar/core/locales/pt-br'
 
 import { EventContentArg } from '@fullcalendar/core/index.js'
+import { FullCalendarWrapper } from '@/shared/styles/fullcalendar/fullcalendar-styled'
+import FullCalendar from '@fullcalendar/react'
 let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
 
 const events = [
@@ -15,19 +16,21 @@ const events = [
 
 export function FullCalendarComponent() {
   return (
-    <FullCalendar
-      plugins={[dayGridPlugin, timeGridPlugin]}
-      headerToolbar={{
-        left: 'prev,next',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay',
-      }}
-      initialView="dayGridMonth"
-      events={events}
-      initialEvents={events}
-      locales={[ptBRLocale]}
-      locale="pt-br"
-    />
+    <FullCalendarWrapper>
+      <FullCalendar
+        plugins={[dayGridPlugin, timeGridPlugin]}
+        headerToolbar={{
+          left: 'prev,next',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay',
+        }}
+        initialView="dayGridMonth"
+        events={events}
+        initialEvents={events}
+        locales={[ptBRLocale]}
+        locale="pt-br"
+      />
+    </FullCalendarWrapper>
   )
 }
 
