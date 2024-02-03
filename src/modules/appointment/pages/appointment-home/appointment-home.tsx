@@ -3,13 +3,10 @@
 import { FullCalendarComponent } from '@/shared/components/fullcalendar'
 import {
   AppointmentHomeStyled,
-  AppointmentHomeStyledCard,
-  AppointmentHomeStyledCardHeader,
-  AppointmentHomeStyledCardHeaderActionButton,
-  AppointmentHomeStyledCardHeaderTitle,
   AppointmentHomeStyledContainer,
   AppointmentHomeStyledTitle,
 } from '@/modules/appointment/components/appointment-home/styled/appointment-home-styled'
+import Card from '@/shared/components/ui/card/card'
 
 export default function AppointmentHome() {
   return (
@@ -17,26 +14,12 @@ export default function AppointmentHome() {
       <AppointmentHomeStyledTitle>Agendamentos</AppointmentHomeStyledTitle>
       <AppointmentHomeStyledContainer>
         <FullCalendarComponent />
-        <AppointmentHomeStyledCard>
-          <AppointmentHomeStyledCardHeader>
-            <AppointmentHomeStyledCardHeaderTitle>
-              Card title
-            </AppointmentHomeStyledCardHeaderTitle>
-            <AppointmentHomeStyledCardHeaderActionButton
-              icon="pi pi-replay"
-              iconPos="right"
-              rounded
-              text
-            />
-            <AppointmentHomeStyledCardHeaderActionButton
-              icon="pi pi-trash"
-              iconPos="right"
-              rounded
-              text
-            />
-          </AppointmentHomeStyledCardHeader>
-          <div>Card content</div>
-        </AppointmentHomeStyledCard>
+        <Card.Wrapper>
+          <Card.Content>
+            <Card.Typography as="h6">Card title</Card.Typography>
+            <Card.Typography as="p">Card paragraph</Card.Typography>
+          </Card.Content>
+        </Card.Wrapper>
       </AppointmentHomeStyledContainer>
     </AppointmentHomeStyled>
   )
