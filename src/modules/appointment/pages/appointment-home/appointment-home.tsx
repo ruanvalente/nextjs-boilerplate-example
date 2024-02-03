@@ -16,7 +16,15 @@ export default function AppointmentHome() {
         <FullCalendarComponent />
         <Card.Wrapper>
           <Card.Content>
-            <Card.Typography as="h6">Card title</Card.Typography>
+            <Card.ActionWrapper>
+              <Card.Typography as="h6">Card title</Card.Typography>
+              <Card.ActionButton rounded variant="outline">
+                <i className="pi pi-replay"></i>
+              </Card.ActionButton>
+              <Card.ActionButton rounded variant="outline">
+                <i className="pi pi-trash"></i>
+              </Card.ActionButton>
+            </Card.ActionWrapper>
             <Card.Typography as="p">Card paragraph</Card.Typography>
           </Card.Content>
         </Card.Wrapper>

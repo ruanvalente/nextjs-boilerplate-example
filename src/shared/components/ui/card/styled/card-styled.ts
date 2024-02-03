@@ -1,39 +1,10 @@
-import styled, { css } from 'styled-components'
-
-const fontSizeStyles = {
-  h1: css`
-    font-size: 5rem;
-  `,
-  h2: css`
-    font-size: 4.5rem;
-  `,
-  h3: css`
-    font-size: 4rem;
-  `,
-  h4: css`
-    font-size: 3.5rem;
-  `,
-  h5: css`
-    font-size: 3rem;
-  `,
-  h6: css`
-    font-size: 2.5rem;
-  `,
-  p: css`
-    font-size: 1rem;
-  `,
-}
-
-interface CardStyledHeadingProps {
-  as?: keyof typeof fontSizeStyles
-}
-
-const getFontSize = (props: CardStyledHeadingProps) => {
-  if (props.as && fontSizeStyles[props.as]) {
-    return fontSizeStyles[props.as]
-  }
-  return fontSizeStyles.p
-}
+import styled from 'styled-components'
+import {
+  CardStyledActionButtonTypesProps,
+  CardStyledHeadingTypeProps,
+  getFontSize,
+  getVariantButtonStyled,
+} from './themes/card-themes'
 
 export const CardStyledWrapper = styled.div`
   padding: 1.5rem 2rem;
@@ -42,8 +13,25 @@ export const CardStyledWrapper = styled.div`
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 `
 export const CardStyledContent = styled.div``
-export const CardStyledTypography = styled.div<CardStyledHeadingProps>`
+export const CardStyledTypography = styled.div<CardStyledHeadingTypeProps>`
+  flex: 1;
+
   ${(props) => getFontSize(props)}
 `
+export const CardStyledActionWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const CardStyledActionButton = styled.button<CardStyledActionButtonTypesProps>`
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
 
-export const CardStyledAction = styled.div``
+  cursor: pointer;
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  ${(props) => getVariantButtonStyled(props)}
+`

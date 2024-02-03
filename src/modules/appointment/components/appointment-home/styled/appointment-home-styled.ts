@@ -14,21 +14,6 @@ export const AppointmentHomeStyledContainer = styled.section`
   grid-template-columns: minmax(450px, 1fr) 1fr;
   gap: 4rem;
 `
-export const AppointmentHomeStyledCard = styled.div`
-  padding: 1.5rem 2rem;
-
-  border-radius: 8px;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-`
-
-export const AppointmentHomeStyledCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-export const AppointmentHomeStyledCardHeaderTitle = styled.h2`
-  flex: 1;
-`
 
 export const AppointmentHomeStyledCardHeaderActionButton = styled(PrimeButton)`
   display: flex;
