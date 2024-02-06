@@ -4,12 +4,10 @@ import { CardContent } from './card-content'
 import { CardTypography } from './card-typography'
 import { CardWrapper } from './card-wrapper'
 
-const Card = {
+export default {
   Wrapper: CardWrapper,
   Content: CardContent,
   Typography: CardTypography,
   ActionWrapper: CardActionWrapper,
   ActionButton: CardActionButton,
 }
-
-export default Card

@@ -1,3 +1,5 @@
+'use client'
+
 import { HTMLProps, PropsWithChildren } from 'react'
 import { CardStyledActionWrapper } from './styled/card-styled'
 

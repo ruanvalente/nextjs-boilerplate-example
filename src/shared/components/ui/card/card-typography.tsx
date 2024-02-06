@@ -1,3 +1,5 @@
+'use client'
+
 import { PropsWithChildren, HTMLProps } from 'react'
 import { CardStyledTypography } from './styled/card-styled'
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { HTMLProps, PropsWithChildren } from 'react'
 import { CardStyledWrapper } from './styled/card-styled'
 
