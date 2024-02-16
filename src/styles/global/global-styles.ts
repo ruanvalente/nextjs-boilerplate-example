@@ -1,7 +1,9 @@
 'use client'
+
 import 'primeicons/primeicons.css'
 import 'primereact/resources/primereact.min.css'
 import 'primereact/resources/themes/saga-blue/theme.css'
+import '../tailwindcss/global.css'
 
 import styled, { createGlobalStyle } from 'styled-components'
 

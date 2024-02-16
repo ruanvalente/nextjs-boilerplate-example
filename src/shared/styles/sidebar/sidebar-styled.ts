@@ -5,6 +5,7 @@ export const SidebarStyledWrapper = styled(Sidebar)`
   .ps-sidebar-container {
     background: #222;
     color: white;
+    padding: 1rem;
     .ps-menu-root {
       height: 100vh;
     }

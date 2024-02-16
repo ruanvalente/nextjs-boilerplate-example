@@ -4,14 +4,13 @@ import { FullCalendarComponent } from '@/shared/components/fullcalendar'
 import {
   AppointmentHomeStyled,
   AppointmentHomeStyledContainer,
-  AppointmentHomeStyledTitle,
 } from '@/modules/appointment/components/appointment-home/styled/appointment-home-styled'
 import Card from '@/shared/components/ui/card/card'
 
 export default function AppointmentHome() {
   return (
     <AppointmentHomeStyled>
-      <AppointmentHomeStyledTitle>Agendamentos</AppointmentHomeStyledTitle>
+      <h1 className="my-4 text-3xl font-bold">Agendamentos</h1>
       <AppointmentHomeStyledContainer>
         <FullCalendarComponent />
         <Card.Wrapper>

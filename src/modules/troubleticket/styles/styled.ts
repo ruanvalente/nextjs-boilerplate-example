@@ -10,7 +10,17 @@ export const TroubletTicketTableWrapper = styled.div`
 
   div:first-of-type {
     max-width: 60vw;
-    width: 100%;
+  }
+
+  tbody,
+  td,
+  tr,
+  th {
+    border: 1px solid #ccc;
+  }
+
+  th {
+    background: white;
   }
 `
 

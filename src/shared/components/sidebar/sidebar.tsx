@@ -22,20 +22,20 @@ export default function SidebarComponent() {
 
   return (
     <SidebarStyledWrapper
-      collapsedWidth="5vw"
+      collapsedWidth="10vw"
       collapsed={collapsed}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <Menu>
         <MenuItem component={<Link href="/service-test" />}>
-          <i className="pi pi-wrench"></i>
+          <i className="text-xl pi pi-wrench"></i>
           {!collapsed && (
             <span style={{ marginLeft: '1rem' }}>Diágnostico</span>
           )}
         </MenuItem>
         <MenuItem component={<Link href="/service-test/chamado-tecnico" />}>
-          <i className="pi pi-users"></i>
+          <i className="text-xl pi pi-users"></i>
           {!collapsed && (
             <span style={{ marginLeft: '1rem' }}>Chamado Técnico</span>
           )}
@@ -44,13 +44,13 @@ export default function SidebarComponent() {
           component={<Link href="/service-test/chamado-tecnico/agendamentos" />}
           onClick={handleMenuItemClick}
         >
-          <i className="pi pi-calendar"></i>
+          <i className="text-xl pi pi-calendar"></i>
           {!collapsed && (
             <span style={{ marginLeft: '1rem' }}>Agendamentos</span>
           )}
         </MenuItem>
         <MenuItem onClick={handleMenuItemClick}>
-          <i className="pi pi-sign-out"></i>
+          <i className="text-xl pi pi-sign-out"></i>
           {!collapsed && <span style={{ marginLeft: '1rem' }}>Sair</span>}
         </MenuItem>
       </Menu>
