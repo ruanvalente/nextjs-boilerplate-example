@@ -10,9 +10,16 @@ export const SidebarStyledWrapper = styled(Sidebar)`
       height: 100vh;
     }
     .ps-menuitem-root .ps-menu-button {
+      transition: all 0.3s;
       &:hover {
-        background: #fbc02d;
+        outline: 1px solid orange;
+        border-radius: 8px;
+        background: #222;
       }
+    }
+    .active {
+      background: orange;
+      border-radius: 8px;
     }
   }
 `

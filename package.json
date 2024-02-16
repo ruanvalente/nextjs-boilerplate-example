@@ -12,7 +12,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "precommit": "npm run format && npm run lint && npm test",
-    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run start"
   },
   "husky": {
     "hooks": {

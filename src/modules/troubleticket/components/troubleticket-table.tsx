@@ -2,27 +2,25 @@
 
 import { useEffect, useState } from 'react'
 import { HttpClient } from '@/services/http/httpClient'
-
 import { Column as PrimeColumn } from 'primereact/column'
 import { DataTable as PrimeDataTable } from 'primereact/datatable'
 import { Skeleton as PrimeSkeleton } from 'primereact/skeleton'
-
 import { PostType } from '../types/post-type'
 
-type DataTableTypeProps = {
+type TroubleticketSkeletonProps = {
   id: string
   title: string
   body: string
 }
 
 export function TroubleticketTable() {
-  const [troubleticketData, setTroubleticketData] = useState<PostType[]>([])
+  const [data, setData] = useState<PostType[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    const fetchTroubleticketData = async () => {
+    async function fetchData() {
+      setLoading((prevLoadingState) => !prevLoadingState)
       try {
-        setLoading((prevState) => !prevState)
         const baseURL = 'https://jsonplaceholder.typicode.com/posts'
         const httpClient = new HttpClient()
         const response = await httpClient.get<PostType[]>(baseURL)
@@ -30,56 +28,65 @@ export function TroubleticketTable() {
 
         if (status !== 200) {
           console.error('Error fetching data')
-          setLoading((prevState) => !prevState)
+          setData([])
+          setLoading((prevLoadingState) => !prevLoadingState)
         }
-        setTroubleticketData(data)
+        setData(data)
       } catch (error) {
-        setLoading((prevState) => !prevState)
+        console.error(error)
+        setData([])
+        setLoading((prevLoadingState) => !prevLoadingState)
       } finally {
-        setLoading((prevState) => !prevState)
+        setLoading((prevLoadingState) => !prevLoadingState)
       }
     }
-    fetchTroubleticketData()
+    fetchData()
   }, [])
 
   if (loading) {
-    const items: DataTableTypeProps[] = Array.from({ length: 5 }, (v, i) => ({
-      id: '',
-      title: '',
-      body: '',
-    }))
+    const items: TroubleticketSkeletonProps[] = Array.from(
+      { length: 10 },
+      (v, i) => ({
+        id: '',
+        body: '',
+        title: '',
+      }),
+    )
+
     return (
-      <PrimeDataTable value={items} className="w-full p-datatable-striped">
+      <PrimeDataTable value={items} className="p-datatable-striped">
         <PrimeColumn
           field="id"
           header="ID"
-          sortable
+          style={{ width: '25%' }}
           body={<PrimeSkeleton />}
         ></PrimeColumn>
         <PrimeColumn
           field="title"
           header="Title"
-          sortable
+          style={{ width: '25%' }}
           body={<PrimeSkeleton />}
         ></PrimeColumn>
         <PrimeColumn
           field="body"
           header="Body"
-          sortable
+          style={{ width: '25%' }}
           body={<PrimeSkeleton />}
         ></PrimeColumn>
       </PrimeDataTable>
     )
   }
+
   return (
     <PrimeDataTable
-      value={troubleticketData}
+      value={data}
       paginator
       rows={10}
       showGridlines
       stripedRows
       rowsPerPageOptions={[10, 25, 50]}
       tableStyle={{ minWidth: '50rem' }}
+      loading={loading}
     >
       <PrimeColumn field="id" header="ID" sortable></PrimeColumn>
       <PrimeColumn field="title" header="Title" sortable></PrimeColumn>

@@ -41,3 +41,14 @@ next-env.d.ts
 .env-production
 .env-trg
 .env-ti
+
+# Idea
+
+Para adicionar a pasta .idea, que é gerada pelo IntelliJ, ao arquivo .gitignore, siga estas etapas:
+
+Abra o arquivo .gitignore na raiz do seu projeto.
+
+Adicione uma nova linha no arquivo .gitignore com o seguinte conteúdo:
+
+Copy code
+.idea/

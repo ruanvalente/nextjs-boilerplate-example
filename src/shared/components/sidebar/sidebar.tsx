@@ -1,58 +1,61 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, MenuItem } from 'react-pro-sidebar'
 import { SidebarStyledWrapper } from '../../styles/sidebar/sidebar-styled'
 
 export default function SidebarComponent() {
   const [collapsed, setCollapsed] = useState(true)
+  const [collapsedWidth,setCollapsedWidth] = useState('20vw')
+  const [activeMenuItem, setActiveMenuItem] = useState("/service-test");
+  const menuItems = [
+    { path: '/service-test', icon: 'pi pi-wrench', label: 'Diagnóstico' },
+    { path: '/service-test/chamado-tecnico', icon: 'pi pi-users', label: 'Chamado Técnico' },
+    { path: '/service-test/chamado-tecnico/agendamentos', icon: 'pi pi-calendar', label: 'Agendamentos' },
+    { path: '/service-test/logout', icon: 'pi pi-sign-out', label: 'Sair' }
+  ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 900) {
+        setCollapsedWidth('25vw');
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
     setCollapsed(false)
   }
 
-  const handleMouseLeave = () => {
-    setCollapsed(true)
-  }
-
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (path: string) => {
     setCollapsed(false)
+    setActiveMenuItem(path);
   }
 
   return (
     <SidebarStyledWrapper
-      collapsedWidth="10vw"
+      collapsedWidth={collapsedWidth}
       collapsed={collapsed}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <Menu>
-        <MenuItem component={<Link href="/service-test" />}>
-          <i className="text-xl pi pi-wrench"></i>
-          {!collapsed && (
-            <span style={{ marginLeft: '1rem' }}>Diágnostico</span>
-          )}
-        </MenuItem>
-        <MenuItem component={<Link href="/service-test/chamado-tecnico" />}>
-          <i className="text-xl pi pi-users"></i>
-          {!collapsed && (
-            <span style={{ marginLeft: '1rem' }}>Chamado Técnico</span>
-          )}
-        </MenuItem>
-        <MenuItem
-          component={<Link href="/service-test/chamado-tecnico/agendamentos" />}
-          onClick={handleMenuItemClick}
-        >
-          <i className="text-xl pi pi-calendar"></i>
-          {!collapsed && (
-            <span style={{ marginLeft: '1rem' }}>Agendamentos</span>
-          )}
-        </MenuItem>
-        <MenuItem onClick={handleMenuItemClick}>
-          <i className="text-xl pi pi-sign-out"></i>
-          {!collapsed && <span style={{ marginLeft: '1rem' }}>Sair</span>}
-        </MenuItem>
+        {menuItems.map((item, index) => (
+          <MenuItem
+            className={activeMenuItem === item.path ? 'active' : ''}
+            key={index}
+            component={<Link href={item.path}/>}
+            onClick={() => handleMenuItemClick(item.path)}
+          >
+            <i className={`text-xl ${item.icon}`}></i>
+            <span style={{marginLeft: '1rem'}}>{item.label}</span>
+          </MenuItem>
+        ))}
       </Menu>
     </SidebarStyledWrapper>
   )

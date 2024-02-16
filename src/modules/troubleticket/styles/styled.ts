@@ -18,7 +18,6 @@ export const TroubletTicketTableWrapper = styled.div`
   th {
     border: 1px solid #ccc;
   }
-
   th {
     background: white;
   }
