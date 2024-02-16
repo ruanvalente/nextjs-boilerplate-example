@@ -7,7 +7,7 @@ import { SidebarStyledWrapper } from '../../styles/sidebar/sidebar-styled'
 
 export default function SidebarComponent() {
   const [collapsed, setCollapsed] = useState(true)
-  const [collapsedWidth,setCollapsedWidth] = useState('20vw')
+  const [collapsedWidth,setCollapsedWidth] = useState('15vw')
   const [activeMenuItem, setActiveMenuItem] = useState("/service-test");
   const menuItems = [
     { path: '/service-test', icon: 'pi pi-wrench', label: 'Diagnóstico' },

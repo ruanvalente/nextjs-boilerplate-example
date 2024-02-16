@@ -25,9 +25,9 @@ export default function TroubleticketHome() {
         <div>
         <TroubleticketTable />
         </div>
-        {/*<div>*/}
-        {/*  <Card.Wrapper>opa</Card.Wrapper>*/}
-        {/*</div>*/}
+        <div>
+          <Card.Wrapper>opa</Card.Wrapper>
+        </div>
       </div>
 
       <Dialog onHide={toggleDialog} visible={openDialog} />
